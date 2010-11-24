@@ -1,0 +1,7 @@
+Prerequisites:
+    one of: lxml (preferred), Python 2.5+, cElementTree, ElementTree
+    all:
+        Python 2.?+
+        jinja 2.4+
+        Twisted 10+ ?
+    

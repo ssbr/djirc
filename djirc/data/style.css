@@ -1,0 +1,13 @@
+body {
+    color: black;
+    background-color: #ffffff;
+    font-family: Consolas, monospace;
+}
+
+b {
+    font-weight: bold;
+}
+
+i {
+    font-style: italic;
+}

@@ -1,0 +1,23 @@
+add-notify: "<li>-- {{nick}} added to notify list.</li>"
+banned: "<li>-- Cannot join {{ channel }} (you are banned).</li>"
+
+join: "<li>-- {{ nick }} has joined {{ channel }}</li>"
+part: "<li>-- {{ nick }} has left {{ channel }} ({{ msg }})</li>"
+quit: "<li>-- {{ nick }} has quit ({{ msg }})</li>"
+change-nick: "<li>-- {{ old_nick }} is now known as {{ new_nick }}.</li>"
+
+you-join: "<li>-- you have joined {{ channel }}</li>"
+you-part: "<li>-- you have left {{ channel }} ({{ msg }})</li>"
+you-quit: "<li>-- you have quit ({{ msg }})</li>"
+you-change-nick: "<li>-- you are now known as {{ new_nick }}.</li>"
+
+nick-conflict: "<li>-- {{ old_nick }} already in use; retrying with {{ new_nick }}</li>"
+nick-failure: "<li>-- {{ nick }} already in use; use /nick to try another.</li>"
+
+action: "<li>* {{ nick }} {{ msg }}</li>"
+msg: "<li>&lt;<b>{{ nick }}</b>&gt; {{ msg }}</li>"
+notice: "<li>[<b>{{ nick }}</b>] {{ msg }}</li>"
+
+disconnect: "<li>-- disconnected ({{ msg }})</li>"
+connect: "<li>-- connected. Now signing on...</li>"
+signon: "<li>-- signed on.</li>"
