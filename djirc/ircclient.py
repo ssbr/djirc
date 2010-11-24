@@ -183,16 +183,16 @@ class IRCClientFactory(protocol.ClientFactory):
         # FIXME: should use templates
         # TODO: test this
         self.view.receive_xml(etree.fromstring(
-            "<li> -- disconnected (%s)</li>" % (reason,)))
-        self.view.receive_xml(etree.fromstring(
-            "<li> -- reconnecting ...</li>"))
+            self.factory.meta.view_event_templates['disconnect'].render(
+                msg=reason)))
         connector.connect()
 
     def clientConnectionFailed(self, connector, reason):
         # FIXME: should use templates
         # TODO: test this
         self.view.receive_xml(etree.fromstring(
-            "<li> -- connection failed: %s</li>" % (reason,)))
+            self.factory.meta.view_event_templates['connect-failure'].render(
+                msg=reason)))
     
     def send_command(self, irc_context, line):
         """Parse a command line and do relevant actions or send relevant data
@@ -216,16 +216,17 @@ class IRCClientFactory(protocol.ClientFactory):
                 self.protocol_instance,
                 'do_%s' % command)
         except AttributeError:
-            self.view.receive_xml(etree.fromstring(
-                "<li>No such command (%s)</li>" % command))
+            self.view.receive_xml(etree.fromstring(elf.factory.meta.
+                view_event_templates['invalid-command'].render(
+                    input=command)))
         else:
             if irc_context is not None:
                 dispatched(irc_context, data)
             else:
                 if command in ['say', 'me', 'notice']:
-                    self.view.receive_xml(etree.fromstring(
-                        "<li>You need to be in a channel to do that. "
-                        "Try /join #CHANNEL</li>"))
+                    self.view.receive_xml(etree.fromstring(self.factory.meta.
+                        view_event_templates['need-channel-context'].render(
+                            input=command)))
                 else:
                     dispatched(None, data)
 

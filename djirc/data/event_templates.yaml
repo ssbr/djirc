@@ -18,6 +18,11 @@ action: "<li>* {{ nick }} {{ msg }}</li>"
 msg: "<li>&lt;<b>{{ nick }}</b>&gt; {{ msg }}</li>"
 notice: "<li>[<b>{{ nick }}</b>] {{ msg }}</li>"
 
-disconnect: "<li>-- disconnected ({{ msg }})</li>"
+disconnect: "<li>-- disconnected: {{ msg }}</li>"
+connect-failure: "<li> -- connection failed: {{ msg }}</li>"
 connect: "<li>-- connected. Now signing on...</li>"
 signon: "<li>-- signed on.</li>"
+
+# I should introduce event namespacing...
+invalid-command: "<li>No such command: {{ input }}</li>"
+need-channel-context: "<li>You need to be in a channel to do that. Try /join #CHANNEL</li>"

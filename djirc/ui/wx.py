@@ -17,7 +17,6 @@ from djirc import interfaces
 from djirc.ui import common
 
 CSS_FILE = os.path.join(common.DATA_DIR, 'style.css')
-import pdb; pdb.set_trace()
 
 def css_urlFetch(url):
     """Disable CSS URLs for now"""
